@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.QuestionListController">
+   <children>
+      <ToolBar prefHeight="40.0" prefWidth="200.0">
+        <items>
+            <HBox alignment="CENTER">
+               <children>
+                  <TextField fx:id="question_textField" prefWidth="200.0" promptText="Question" />
+                  <CheckBox fx:id="isActive_checkbox" mnemonicParsing="false" text="Is Active">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </CheckBox>
+                  <Button fx:id="searchBtn" mnemonicParsing="false" text="Search">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+                <Button fx:id="clearBtn" mnemonicParsing="false" text="Clear">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+        </items>
+      </ToolBar>
+      <ScrollPane fx:id="scrollPane" fitToWidth="true">
+         <content>
+            <VBox>
+               <children>
+                  <Pane fx:id="tableView_Pane" />
+                  <Pagination fx:id="questionPagination" maxPageIndicatorCount="5" />
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>
