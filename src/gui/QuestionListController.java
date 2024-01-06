@@ -28,7 +28,7 @@ import java.util.ResourceBundle;
 import model.dto.SearchModel;
 import model.util.Pager;
 
-public class QuestionListController implements Initializable, UpdatableController, DeletableController<QuestionDto> {
+public class QuestionListController implements Initializable, PaginableController, DeletableController<QuestionDto> {
     private static SearchModel<QuestionDto> searchParam = new SearchModel<>();
     
     private Pager<QuestionDto> pager;
@@ -144,7 +144,7 @@ public class QuestionListController implements Initializable, UpdatableControlle
         // Pagination
         questionPagination.currentPageIndexProperty().addListener((obs, oldIdx, newIdx) ->{
             if (oldIdx.intValue() != newIdx.intValue()){
-                searchParam.setPage(newIdx.intValue());
+                setPage(newIdx.intValue());
                 update();
             }
         });
@@ -178,6 +178,11 @@ public class QuestionListController implements Initializable, UpdatableControlle
     @Override
     public void delete(QuestionDto obj) {
         service.delete(obj);
+    }
+
+    @Override
+    public void setPage(int page) {
+        searchParam.setPage(page);
     }
 
 }
